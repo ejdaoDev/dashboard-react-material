@@ -3,7 +3,7 @@ import React from 'react'
 const EditUser = () => {
     return (
         <div>
-            Aqui editamos usuarios
+            Edit User is Here!!!
         </div>
     )
 }

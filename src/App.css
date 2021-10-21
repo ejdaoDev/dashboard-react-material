@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.btn-dropdown-header{
+  background: transparent !important;
+  font-size: 20px !important;
+  border: none !important;
+  border-radius: 50% !important;
+  margin-right: 5px;
+   -webkit-transition-duration: 0.4s !important; /* Safari */
+    transition-duration: 0.4s !important;
+}
+
+.btn-dropdown-header:hover{
+  background: #4f89c4 !important;
+  border-color: #1976d2 !important;
+}
+
+.btn-dropdown-header:focus{
+  background: #4f89c4 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
