@@ -8,23 +8,23 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import HomeIcon from '@mui/icons-material/Home';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import sessionRoutes from "./components/views/sessions/sessionsRoutes";
+import securityRoutes from "./components/modules/security/securityRoutes";
+import loansRoutes from "./components/modules/loans/loansRoutes";
+
 import { ThemeProvider } from "@material-ui/styles";
-import Footer from "./components/layouts/Footer";
-import Topbar from "./components/layouts/Topbar";
+
 import Home from "./components/Home";
-import CreateNewUser from "./components/security/CreateNewUser";
-import EditUser from "./components/security/EditUser";
+import Footer from "./components/views/layouts/Footer";
+import Topbar from "./components/views/layouts/Topbar";
+import Sidebar from "./components/views/layouts/Sidebar";
+
 import coolerTheme from "./themes/coolerTheme";
 import "./App.css";
 import "bootstrap";
@@ -100,12 +100,21 @@ const Drawer = styled(MuiDrawer, {
 export default function App() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [view, setView] = React.useState(true);
 
   const handleDrawerOpen = () => {
+    let element1 = document.getElementById("pn1-title");
+    let element2 = document.getElementById("sidebar-title");
+    element1.className = "d-block";
+    element2.className = "d-block";
     setOpen(true);
   };
 
   const handleDrawerClose = () => {
+    let element1 = document.getElementById("pn1-title");
+    let element2 = document.getElementById("sidebar-title");
+    element1.className = "d-none";
+    element2.className = "d-none";
     setOpen(false);
   };
 
@@ -114,9 +123,11 @@ export default function App() {
       <Router>
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
+
           <AppBar position="fixed" open={open}>
             <Topbar></Topbar>
           </AppBar>
+
           <Drawer variant="permanent" open={open}>
             <DrawerHeader>
               <IconButton onClick={handleDrawerClose}>
@@ -146,58 +157,23 @@ export default function App() {
                 </ListItemIcon>
               </ListItem>
 
-              <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-                <ListItem button key="Inbox">
-                  <ListItemIcon>
-                    <HomeIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Home" />
-                </ListItem>
-              </Link>
-
-              <Link
-                to="/create-new-user"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <ListItem button key="Inbox">
-                  <ListItemIcon>
-                    <AddIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Create User" />
-                </ListItem>
-              </Link>
-
-              <Link
-                to="/edit-user"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <ListItem button key="Inbox">
-                  <ListItemIcon>
-                    <EditIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Edit User" />
-                </ListItem>
-              </Link>
+              <Sidebar></Sidebar>
             </List>
             <Divider />
-            <List>
-              {["All mail", "Trash", "Spam"].map((text, index) => (
-                <ListItem button key={text}>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItem>
-              ))}
-            </List>
           </Drawer>
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
             <DrawerHeader />
-
             <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/create-new-user" component={CreateNewUser} />
-              <Route path="/edit-user" component={EditUser} />
+              <Route path="/home" exact component={Home} />
+              {sessionRoutes.map((item, i) => (
+                <Route path={item.path} component={item.component} />
+              ))}
+              {securityRoutes.map((item, i) => (
+                <Route path={item.path} component={item.component} />
+              ))}
+              {loansRoutes.map((item, i) => (
+                <Route path={item.path} component={item.component} />
+              ))}
             </Switch>
             <AppBar
               position="fixed"

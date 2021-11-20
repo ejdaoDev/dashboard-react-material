@@ -9,11 +9,14 @@ import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import HomeIcon from "@mui/icons-material/Home";
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { Button } from 'reactstrap';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { Link } from "react-router-dom";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -177,8 +180,10 @@ export default function PrimarySearchAppBar() {
         component="div"
         sx={{ display: { xs: 'none', sm: 'block' } }}
       >
-        MUI
       </Typography>
+      
+      <Link to="/home"><Button variant="outlined" color="transparent" style={{ marginRight: "5px" }}><HomeIcon /></Button></Link>
+
       <Search>
         <SearchIconWrapper>
           <SearchIcon />
@@ -232,7 +237,4 @@ export default function PrimarySearchAppBar() {
       {renderMenu}
     </Toolbar>
   );
-}
-
-/* {renderMobileMenu}
-     {renderMenu}*/
+} /* {renderMobileMenu} {renderMenu}*/

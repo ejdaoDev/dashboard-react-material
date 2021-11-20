@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Home = () => {
+const Balance = () => {
     return (
         <div>
-            Home
+            Saldo
         </div>
     )
 }
 
-export default Home
+export default Balance

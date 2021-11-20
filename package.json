@@ -1,5 +1,5 @@
 {
-  "name": "dashboard-react-material-ui",
+  "name": "creditofacil-v2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,6 +16,7 @@
     "popper.js": "*",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "reactstrap": "^8.10.0",
