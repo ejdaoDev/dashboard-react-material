@@ -75,3 +75,44 @@
   background-color: darkgrey;
   outline: transparent;
 }
+
+/* css for login */
+.font {
+  background: #e9ecef;
+  background-image: url("https://jasrdesarrolloweb.com/assets/dashboard/img/blogs/211120210133430.jpg");
+  background-position: center;
+}
+
+.btn-serch {
+  top: 7px;
+  right: 5px;
+}
+
+.bg {
+  background: #e9ecef !important;
+  min-height: 100vh;
+}
+
+.container {
+  box-shadow: 0px 0px 5px 3px rgb(173, 172, 172);
+}
+
+a{
+  color: rgb(59, 59, 255);
+  font: 100;
+}
+
+/* css for forgot-password */
+.btn-serch {
+  top: 7px;
+  right: 5px;
+}
+
+.bg {
+  background: #e9ecef;
+  min-height: 100vh;
+}
+
+.cg {
+  background: white;
+}

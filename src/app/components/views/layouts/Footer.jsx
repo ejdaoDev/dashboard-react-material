@@ -1,6 +1,5 @@
 import * as React from 'react';
-
-export default function BottomAppBar() {
+export default function Footer() {
   return (
     <footer className="sticky-footer" style={{ height: '50px' }}>
       <div className="container my-auto">

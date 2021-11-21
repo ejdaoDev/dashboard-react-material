@@ -4,7 +4,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
-
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import PersonIcon from '@mui/icons-material/Person';
@@ -24,7 +23,7 @@ export default function Sidebar() {
 
     return (
         <List>
-            <Link to="/home" style={{ textDecoration: "none", color: "black" }}><div id="sidebar-title"  className="d-none" style={{ textAlign: "center", padding: "10px" }} ><img style={{ height: "30px" }} src="/assets/images/logo.png" /> Credito Facil</div></Link>
+            <Link to="/home" style={{ textDecoration: "none", color: "black" }}><div id="sidebar-title" className="d-none" style={{ textAlign: "center", padding: "10px" }} ><img style={{ height: "30px" }} src="assets/images/logo.png" /> Credito Facil</div></Link>
             <Divider />
             <Link to="/security/users" style={{ textDecoration: "none", color: "black" }}>
                 <ListItem button key="Inbox">
@@ -37,7 +36,7 @@ export default function Sidebar() {
             <Accordion expanded={expanded === 'pn1'} onChange={handleChange('pn1')}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                     <Typography sx={{ width: '33%', flexShrink: 0, color: 'text.secondary' }}>
-                    <AccountBalanceIcon /></Typography><label id="pn1-title" className="d-none">Prestamo</label>
+                        <AccountBalanceIcon /></Typography><label id="pn1-title" className="d-none">Prestamo</label>
                 </AccordionSummary>
                 <Link to="/balance" style={{ textDecoration: "none", color: "black" }}>
                     <ListItem button key="Inbox">

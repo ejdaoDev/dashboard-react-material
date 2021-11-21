@@ -1,8 +1,6 @@
 import Balance from "./Balance";
 import Loans from "./Loans";
 import Record from "./Record";
-
-
 const loansRoutes = [
   {
     path: "/loans",
@@ -17,5 +15,4 @@ const loansRoutes = [
     component: Record,
   },
 ];
-
 export default loansRoutes;

@@ -12,6 +12,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from "@mui/icons-material/Home";
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
+import PagesIcon from '@mui/icons-material/Pages';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Button } from 'reactstrap';
@@ -48,7 +49,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -58,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function Topbar() {
   const [dropdownOne, setDropdownOne] = useState(false);
   const OpenCloseDropdownOne = () => {
     setDropdownOne(!dropdownOne)
@@ -114,8 +114,9 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem><Link to="/" style={{textDecoration:"none", color:"black"}}><PagesIcon/>{' '}Ir al Index</Link></MenuItem>
+      <MenuItem onClick={handleMenuClose}>Action 5</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Action 6</MenuItem>
     </Menu>
   );
 
@@ -166,7 +167,7 @@ export default function PrimarySearchAppBar() {
         >
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
+        <p>Usuario</p>
       </MenuItem>
     </Menu>
   );
@@ -181,7 +182,7 @@ export default function PrimarySearchAppBar() {
         sx={{ display: { xs: 'none', sm: 'block' } }}
       >
       </Typography>
-      
+
       <Link to="/home"><Button variant="outlined" color="transparent" style={{ marginRight: "5px" }}><HomeIcon /></Button></Link>
 
       <Search>
@@ -214,7 +215,7 @@ export default function PrimarySearchAppBar() {
             <AccountCircle />
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem>Action 4</DropdownItem>
+            <DropdownItem><Link to="/" style={{textDecoration:"none", color:"black"}}><PagesIcon/>{' '}Ir al Index</Link></DropdownItem>
             <DropdownItem>Action 5</DropdownItem>
             <DropdownItem>Action 6</DropdownItem>
           </DropdownMenu>
@@ -237,4 +238,4 @@ export default function PrimarySearchAppBar() {
       {renderMenu}
     </Toolbar>
   );
-} /* {renderMobileMenu} {renderMenu}*/
+}
